@@ -124,6 +124,7 @@ body {
   border-radius: 10px;
   overflow: scroll;
   height: 50rem;
+  grid-row: 2 / 5;
   &-row {
     display: flex;
     justify-content: space-between;
@@ -151,4 +152,60 @@ body {
   &-withdrawal {
     @include redgradient();
   }
+}
+.secondary-heading {
+  margin-bottom: 2rem;
+}
+.operation {
+  padding: 4rem;
+  border-radius: 10px;
+  &-form {
+    display: grid;
+    grid-template-columns: 2.5fr 2.5fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.4rem 1rem;
+  }
+  &-input {
+    width: 100%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.4);
+    font-family: inherit;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #333;
+    padding: 0.3rem 1rem;
+    border-radius: 0.7rem;
+    transition: all 0.3s;
+    &:focus {
+      outline: 1px solid var(--gray);
+    }
+  }
+  &-button {
+    border: none;
+    border-radius: 0.7rem;
+    font-size: 1.8rem;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  label {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+}
+.transfer {
+  @include yellowgradient();
+}
+.loan {
+  @include greengradient();
+
+  &-form {
+    grid-template-columns: 2.5fr 1fr 2.5fr;
+  }
+  label {
+    grid-row: 2;
+  }
+}
+.close {
+  @include redgradient();
 }

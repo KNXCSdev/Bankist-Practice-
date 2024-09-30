@@ -74,14 +74,33 @@
           <div class="movments-value">200€</div>
         </div>
       </div>
-      <div class="transfer">
+      <div class="transfer operation">
         <h2 class="secondary-heading">Transfer Money</h2>
+        <form action="#" class="transfer-form operation-form">
+          <input type="text" class="transfer-form-to operation-input" />
+          <input type="number" class="transfer-form-amount operation-input" />
+          <button class="operation-button transfer-button">&rarr;</button>
+          <label>Transfer to</label>
+          <label>Amount</label>
+        </form>
       </div>
-      <div class="loan">
+      <div class="loan operation">
         <h2 class="secondary-heading">Request Loan</h2>
+        <form action="#" class="loan-form operation-form">
+          <input type="number" class="loan-form-amount operation-input" />
+          <button class="operation-button transfer-button">&rarr;</button>
+          <label>Amount</label>
+        </form>
       </div>
-      <div class="close">
+      <div class="close operation">
         <h2 class="secondary-heading">Close Account</h2>
+        <form action="#" class="close-form operation-form">
+          <input type="text" class="close-form-user operation-input" />
+          <input type="password" class="close-form-pin operation-input" />
+          <button class="operation-button transfer-button">&rarr;</button>
+          <label>Confirm User</label>
+          <label>Confirm PIN</label>
+        </form>
       </div>
     </main>
   </body>
