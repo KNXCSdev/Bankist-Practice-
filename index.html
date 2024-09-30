@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bankist-Practice</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="main.js" defer></script>
+    <script src="logging.js" defer></script>
+  </head>
+  <body>
+    <nav class="navigation">
+      <div class="navigation-welcome">
+        <p class="navigation-welcome-message">Log in to get started</p>
+      </div>
+      <div class="navigation-logo">
+        <img src="logo.png" alt="logo" class="navigation-logo-img" />
+      </div>
+      <form class="navigation-form">
+        <input type="text" class="navigation-user" placeholder="user" />
+        <input type="text" class="navigation-pin" placeholder="PIN" />
+        <button class="navigation-button">&rarr;</button>
+      </form>
+    </nav>
+    <main class="app">
+      <div class="balance">
+        <div class="balance-info">
+          <p class="balance-info-text">Current balance</p>
+          <p class="balance-info-as">As of <span class="balance-info-date">05/03/2037</span></p>
+        </div>
+
+        <div class="balance-current">
+          <p class="balance-current-text">3840€</p>
+        </div>
+      </div>
+
+      <div class="movments">
+        <div class="movments-row">
+          <div class="movments-type movments-deposit">8 DEPOSIT</div>
+          <div class="movments-value">1300€</div>
+        </div>
+        <div class="movments-row">
+          <div class="movments-type movments-deposit">7 DEPOSIT</div>
+          <div class="movments-value">70€</div>
+        </div>
+        <div class="movments-row">
+          <div class="movments-type movments-withdrawal">6 withdrawal</div>
+          <div class="movments-value">-130€</div>
+        </div>
+        <div class="movments-row">
+          <div class="movments-type movments-withdrawal">5 withdrawal</div>
+          <div class="movments-value">-650€</div>
+        </div>
+        <div class="movments-row">
+          <div class="movments-type movments-deposit">4 DEPOSIT</div>
+          <div class="movments-value">3000€</div>
+        </div>
+        <div class="movments-row">
+          <div class="movments-type movments-withdrawal">3 withdrawal</div>
+          <div class="movments-value">-400€</div>
+        </div>
+        <div class="movments-row">
+          <div class="movments-type movments-deposit">2 DEPOSIT</div>
+          <div class="movments-value">450€</div>
+        </div>
+        <div class="movments-row">
+          <div class="movments-type movments-deposit">1 DEPOSIT</div>
+          <div class="movments-value">200€</div>
+        </div>
+      </div>
+      <div class="transfer">
+        <h2 class="secondary-heading">Transfer Money</h2>
+      </div>
+      <div class="loan">
+        <h2 class="secondary-heading">Request Loan</h2>
+      </div>
+      <div class="close">
+        <h2 class="secondary-heading">Close Account</h2>
+      </div>
+    </main>
+  </body>
+</html>
