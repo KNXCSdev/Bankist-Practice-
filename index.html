@@ -88,7 +88,7 @@
         <h2 class="secondary-heading">Request Loan</h2>
         <form action="#" class="loan-form operation-form">
           <input type="number" class="loan-form-amount operation-input" />
-          <button class="operation-button transfer-button">&rarr;</button>
+          <button class="operation-button loan-button">&rarr;</button>
           <label>Amount</label>
         </form>
       </div>
@@ -97,11 +97,21 @@
         <form action="#" class="close-form operation-form">
           <input type="text" class="close-form-user operation-input" />
           <input type="password" class="close-form-pin operation-input" />
-          <button class="operation-button transfer-button">&rarr;</button>
+          <button class="operation-button close-button">&rarr;</button>
           <label>Confirm User</label>
           <label>Confirm PIN</label>
         </form>
       </div>
+      <div class="summary">
+        <p class="summary-label">In</p>
+        <p class="summary-value summary-value-in">5020€</p>
+        <p class="summary-label">Out</p>
+        <p class="summary-value summary-value-out">1180€</p>
+        <p class="summary-label">Interest</p>
+        <p class="summary-value summary-value-interest">59.4€</p>
+        <button class="btn-sort">⬇SORT</button>
+      </div>
+      <p class="logged-out">You will be logged out in <span class="timer">5:00</span></p>
     </main>
   </body>
 </html>
