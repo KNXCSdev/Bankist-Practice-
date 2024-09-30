@@ -1,0 +1,154 @@
+:root {
+  --fontcolor: #444;
+  --redfont: #f5465d;
+  --greenfont: #66c873;
+  --headingcolor: #333;
+  --white: #fff;
+  --gray: #cecbcb;
+}
+@mixin greengradient {
+  background-image: linear-gradient(to top left, #39b385, #9be15d);
+}
+
+@mixin redgradient {
+  background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+}
+
+@mixin yellowgradient {
+  background-image: linear-gradient(to top left, #ffb003, #ffcb03);
+}
+
+html {
+  font-size: 62.5%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1;
+  height: 100vh;
+  padding: 2rem;
+  background-color: #f3f3f3;
+  color: var(--fontcolor);
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  &-welcome {
+    &-message {
+      font-size: 1.9rem;
+      font-weight: 500;
+    }
+  }
+  &-logo {
+    &-img {
+      height: 5.25rem;
+    }
+  }
+  &-form {
+    display: flex;
+    gap: 1rem;
+  }
+  &-user,
+  &-pin {
+    border: none;
+    padding: 0.5rem 2rem;
+    font-size: 1.6rem;
+    font-family: inherit;
+    text-align: center;
+    width: 12rem;
+    border-radius: 10rem;
+    margin-right: 1rem;
+    color: inherit;
+    border: 1px solid #fff;
+    transition: all 0.3s;
+    &::placeholder {
+      color: #cecbcb;
+    }
+    &:focus {
+      outline: 1px solid var(--gray);
+    }
+  }
+
+  &-button {
+    font-size: 2.4rem;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+  }
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  grid-template-rows: auto repeat(3, 15rem) auto;
+  gap: 2rem;
+  max-width: 100rem;
+  margin: 0 auto;
+}
+.balance {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6.4rem 0;
+  padding-bottom: 3.2rem;
+  &-info {
+    &-text {
+      font-size: 2.4rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    &-as {
+      font-size: 1.4rem;
+      color: #888;
+    }
+  }
+
+  &-current {
+    &-text {
+      font-size: 4.8rem;
+    }
+  }
+}
+
+.movments {
+  background-color: var(--white);
+  border-radius: 10px;
+  overflow: scroll;
+  height: 50rem;
+  &-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 2.8rem 3.6rem;
+  }
+
+  &-type {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    padding: 0.4rem 0.8rem;
+    border-radius: 100px;
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  &-value {
+    font-size: 1.8rem;
+  }
+
+  &-deposit {
+    @include greengradient();
+  }
+  &-withdrawal {
+    @include redgradient();
+  }
+}
