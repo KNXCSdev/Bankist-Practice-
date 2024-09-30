@@ -239,9 +239,9 @@ body {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s;
-}
-.btn-sort:hover {
-  color: var(--gray);
+  &:hover {
+    color: var(--gray);
+  }
 }
 
 .logged-out {

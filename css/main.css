@@ -222,7 +222,6 @@ body {
   cursor: pointer;
   transition: all 0.3s;
 }
-
 .btn-sort:hover {
   color: var(--gray);
 }
