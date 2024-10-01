@@ -63,7 +63,8 @@ const loanAmount = document.querySelector(".loan-form-amount");
 const closeAccount = document.querySelector(".close-form-user");
 const closePin = document.querySelector(".close-form-pin");
 const closeButton = document.querySelector(".close-button");
-//CREATING USER LOGIN NAME FUNCTION
+
+const btnSort = document.querySelector(".btn-sort");
 
 function updateUI(acc) {
   calculateBalance(acc);
@@ -114,7 +115,7 @@ function displayMovements(acc) {
     const html = ` 
     <div class="movments-row">
           <div class="movments-type movments-${type}">${i + 1} ${type}</div>
-          <div class="movments-value">${mov}€</div>
+          <div class="movments-value">${mov.toFixed(2)}€</div>
     </div>`;
 
     movments.insertAdjacentHTML("afterbegin", html);
@@ -125,9 +126,9 @@ function displaySummary(acc) {
   const into = acc.filter((mov) => mov > 0).reduce((acc, mov) => acc + mov);
   const out = acc.filter((mov) => mov < 0).reduce((acc, mov) => acc + mov);
 
-  summaryIn.textContent = `${into}€`;
-  summaryOut.textContent = `${out}€`;
-  summaryInterest.textContent = `${into * 0.1}€`;
+  summaryIn.textContent = `${into.toFixed(2)}€`;
+  summaryOut.textContent = `${out.toFixed(2)}€`;
+  summaryInterest.textContent = `${(into * 0.1).toFixed(2)}€`;
 }
 
 btnTransfer.addEventListener("click", (e) => {
@@ -180,4 +181,18 @@ closeButton.addEventListener("click", function (e) {
   }
 
   inputCloseUsername.value = inputClosePin.value = "";
+});
+
+let sorted = false;
+btnSort.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (sorted === false) {
+    currentAccount.movements.sort((a, b) => a - b);
+    sorted = true;
+  } else if (sorted === true) {
+    currentAccount.movements.sort((a, b) => b - a);
+    sorted = false;
+  }
+
+  updateUI(currentAccount);
 });
