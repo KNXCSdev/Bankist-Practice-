@@ -66,6 +66,8 @@ const closeButton = document.querySelector(".close-button");
 
 const btnSort = document.querySelector(".btn-sort");
 
+const timer = document.querySelector(".timer");
+
 function updateUI(acc) {
   calculateBalance(acc);
   displayMovements(acc.movements);
@@ -83,7 +85,7 @@ function create(accs) {
 }
 create(accounts);
 
-let currentAccount;
+let currentAccount, timerr;
 logbtn.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -97,6 +99,9 @@ logbtn.addEventListener("click", (e) => {
     user.value = user.value = "";
     password.value = "";
     password.blur();
+
+    if (timerr) clearInterval(timerr);
+    timerr = startLogOutTimer();
     updateUI(currentAccount);
   }
 });
@@ -131,6 +136,32 @@ function displaySummary(acc) {
   summaryInterest.textContent = `${(into * 0.1).toFixed(2)}€`;
 }
 
+function startLogOutTimer() {
+  function tick() {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(time % 60).padStart(2, 0);
+
+    timer.textContent = `${min}:${sec}`;
+
+    // When 0 seconds, stop timer and log out user
+    if (time === 0) {
+      clearInterval(timer);
+      labelWelcome.textContent = "Log in to get started";
+      container.style.opacity = 0;
+    }
+
+    time--;
+  }
+
+  let time = 120;
+
+  // Call the timer every second
+  tick();
+  const timerr = setInterval(tick, 1000);
+
+  return timerr;
+}
+
 btnTransfer.addEventListener("click", (e) => {
   e.preventDefault();
   const receiverAcc = accounts.find((acc) => acc.username === transferTo.value);
@@ -144,6 +175,8 @@ btnTransfer.addEventListener("click", (e) => {
   ) {
     currentAccount.movements.push(Number(-transferAmount.value));
     receiverAcc.movements.push(Number(transferAmount.value));
+    clearInterval(timerr);
+    timerr = startLogOutTimer();
     updateUI(currentAccount);
   }
 });
@@ -159,6 +192,8 @@ btnLoan.addEventListener("click", function (e) {
 
     // Update UI
     updateUI(currentAccount);
+    clearInterval(timerr);
+    timerr = startLogOutTimer();
   }
   loanAmount.value = "";
 });
@@ -189,7 +224,7 @@ btnSort.addEventListener("click", (e) => {
   if (sorted === false) {
     currentAccount.movements.sort((a, b) => a - b);
     sorted = true;
-  } else if (sorted === true) {
+  } else {
     currentAccount.movements.sort((a, b) => b - a);
     sorted = false;
   }
